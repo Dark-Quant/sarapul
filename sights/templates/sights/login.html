@@ -1,0 +1,18 @@
+{% extends 'sights/base.html' %}
+
+{% block content %}
+    <style>
+        .url {
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 15px;
+            margin-left: 150px;
+            color: #3F4137;
+        }
+    </style>
+    <h1>Авторизация</h1>
+    <div class="form" style="padding-top: 150px; margin-bottom:50px;">
+        {% include 'account/login.html' %}
+        <a class="url" href="{% url 'register' %}">Нет аккаунта. Зарегистрируйтесь</a>
+    </div>
+{% endblock %}

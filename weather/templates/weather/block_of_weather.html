@@ -1,0 +1,15 @@
+{% load weather_tag %}
+<div class="weather">
+    <div class="weather__inner">
+        {% if fact.temp > 0 %}
+        <div class="weather__temp">+{{ fact.temp }}°</div>
+        {% else %}
+        <div class="weather__temp">{{ fact.temp }}°</div>
+        {% endif %}
+        <img src="https://yastatic.net/weather/i/icons/funky/dark/bkn_d.svg" alt="" class="weather__condition">
+        <div class="weather__container">
+            <div class="weather__cloudness">{% translate_weather_fields key="condition" value=fact.condition %}</div>
+            <div class="weather__wind">{{ fact.wind_speed }} м/с, {% translate_weather_fields key="wind_dir" value=fact.wind_dir %}</div>
+        </div>
+    </div>
+</div>

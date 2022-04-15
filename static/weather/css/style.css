@@ -1,0 +1,36 @@
+.weather {
+    display: block;
+    height: 50px;
+    width: 200px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 22px;
+}
+
+.weather__inner {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.weather__temp {
+    font-size: 50px;
+    margin-right: 10px;
+}
+
+.weather__condition {
+    display: block;
+    height: 50px;
+    width: auto;
+}
+
+.weather__container {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    height: 100%;
+}
+
+.weather__cloudness {
+    margin-left: 10px;
+    font-size: 22px;
+}
