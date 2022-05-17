@@ -13,5 +13,5 @@ def get_forecast():
         }
         w = requests.get("https://api.weather.yandex.ru/v2/informers", params=params,
                          headers={'X-Yandex-API-Key': '7734821e-b97e-4f28-80a5-8b74bd73fe1b'})
-        cache.set('weather', json.loads(w.text), 60 * 60 * 6)
+        cache.set('weather', json.loads(w.text), 60 * 60)
     return cache.get('weather')
