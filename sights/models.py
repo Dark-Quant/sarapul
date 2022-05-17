@@ -6,12 +6,12 @@ from .utils import *
 
 
 class Sight(models.Model, GeoItem):
-    title = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=255, unique=True, db_index=True)
-    description = models.TextField()
-    latitude = models.FloatField()
-    longitude = models.FloatField()
-    photo = models.ImageField(upload_to=path_rename)
+    title = models.CharField(max_length=100, verbose_name='Название')
+    slug = models.SlugField(max_length=100, unique=True, db_index=True)
+    description = models.TextField(verbose_name='Описание')
+    latitude = models.FloatField(verbose_name='Широта')
+    longitude = models.FloatField(verbose_name='Долгота')
+    photo = models.ImageField(upload_to=path_rename, verbose_name='Фото')
 
     @property
     def geomap_longitude(self):
@@ -24,3 +24,10 @@ class Sight(models.Model, GeoItem):
     def get_absolute_url(self):
         return reverse('sight', kwargs={'slug': self.slug})
         # return reverse('sights')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Достопримечательность'
+        verbose_name_plural = 'Достопримечательности'

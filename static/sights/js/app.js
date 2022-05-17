@@ -1,4 +1,4 @@
-$(function(){ 
+$(function(){
     let navigation_list = $("#navigation__list"); 
     let navigation_arrow = $("#navigation__arrow");
 
@@ -6,7 +6,6 @@ $(function(){
         object.removeClass(oldClass);
         object.addClass(newClass);
     }
-
 
     // Menu right
     $("#navigation__arrow").on("click", function(event) {

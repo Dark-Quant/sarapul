@@ -12,6 +12,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+    
+    <!-- Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+    {% block fonts %}
+    {% endblock %}    
+
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'sights/images/favicons/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'sights/images/favicons/favicon-32x32.png' %}">
@@ -24,8 +32,13 @@
     <title>{{ title }}</title>
 </head>
 <body>
-{% block sprite %}
+
 <svg style="display: none;">
+    <symbol id="vk" viewBox="0 0 24 24">
+        <g>
+            <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.391 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-1.135-1.744-1.135-.356 0-.458.102-.458.593v1.575c0 .424-.135.678-1.253.678-1.846 0-3.896-1.118-5.335-3.202C4.624 10.857 4.03 8.57 4.03 8.096c0-.254.102-.491.593-.491h1.744c.44 0 .61.203.78.677.863 2.49 2.303 4.675 2.896 4.675.22 0 .322-.102.322-.66V9.721c-.068-1.186-.695-1.287-.695-1.71 0-.204.17-.407.44-.407h2.744c.373 0 .508.203.508.643v3.473c0 .372.17.508.271.508.22 0 .407-.136.813-.542 1.254-1.406 2.151-3.574 2.151-3.574.119-.254.322-.491.763-.491h1.744c.525 0 .644.27.525.643-.22 1.017-2.354 4.031-2.354 4.031-.186.305-.254.44 0 .78.186.254.796.779 1.203 1.253.745.847 1.32 1.558 1.473 2.05.17.49-.085.744-.576.744z"/>
+        </g>
+    </symbol>
 
     <symbol id="facebook" viewBox="0 0 430.113 430.114">
         <g>
@@ -46,33 +59,33 @@
             <path d="M256,0c141.29,0 256,114.71 256,256c0,141.29 -114.71,256 -256,256c-141.29,0 -256,-114.71 -256,-256c0,-141.29 114.71,-256 256,-256Zm170.667,256c0,-20.66 -16.768,-37.427 -37.427,-37.427c-10.18,0 -19.163,3.892 -25.75,10.48c-25.45,-18.265 -60.781,-30.241 -99.705,-31.738l17.066,-79.944l55.392,11.677c0.599,14.072 12.276,25.45 26.648,25.45c14.672,0 26.648,-11.976 26.648,-26.648c0,-14.671 -11.976,-26.648 -26.648,-26.648c-10.479,0 -19.462,5.989 -23.654,14.971l-61.979,-13.174c-1.796,-0.3 -3.593,0 -5.09,0.898c-1.497,0.898 -2.395,2.395 -2.994,4.192l-18.863,89.226c-39.822,1.197 -75.453,12.874 -101.202,31.738c-6.587,-6.288 -15.869,-10.48 -25.75,-10.48c-20.66,0 -37.427,16.767 -37.427,37.427c0,15.27 8.983,28.145 22.157,34.133c-0.599,3.593 -0.898,7.486 -0.898,11.378c0,57.488 66.769,103.897 149.408,103.897c82.638,0 149.408,-46.409 149.408,-103.897c0,-3.892 -0.299,-7.485 -0.898,-11.078c12.276,-5.989 21.558,-19.163 21.558,-34.433Zm-107.191,97.011c-18.264,18.264 -52.996,19.462 -63.177,19.462c-10.18,0 -45.211,-1.498 -63.176,-19.462c-2.695,-2.695 -2.695,-7.186 0,-9.881c2.695,-2.695 7.186,-2.695 9.881,0c11.377,11.378 35.929,15.569 53.595,15.569c17.665,0 41.918,-4.191 53.595,-15.569c2.695,-2.695 7.186,-2.695 9.881,0c2.096,2.994 2.096,7.186 -0.599,9.881Zm-148.809,-70.363c0,-14.671 11.976,-26.648 26.648,-26.648c14.671,0 26.648,11.977 26.648,26.648c0,14.671 -11.977,26.648 -26.648,26.648c-14.672,0 -26.648,-11.977 -26.648,-26.648Zm144.018,26.648c-14.671,0 -26.648,-11.977 -26.648,-26.648c0,-14.671 11.977,-26.648 26.648,-26.648c14.672,0 26.648,11.977 26.648,26.648c0,14.671 -11.976,26.648 -26.648,26.648Z"/>
         </g>
     </symbol>
+    {% block sprite %}
+    {% endblock %}
 </svg>
-{% endblock %}
+
 
 {% block header %}
 <!-- Header -->
-<header class="header" id="header" style="background: #31344e url({% static 'sights/images/intro-bg.jpg' %}) center no-repeat; background-size: cover; z-index: 1;">
+<header class="header" id="header">
     <div class="container">
         <div class="header__inner">
-            <div class="account">
-                {% if request.user.is_authenticated %}
-                <a class="btn btn--login" id="profile" href="#">Профиль</a>
-                {% else %}
-                <a href="{% url 'login' %}" class="btn btn--login">Войти</a>
-                {% endif %}
-            </div>
             <nav class="nav" id="nav">
-                <a class="nav__link" href="#" data-scroll="#features">История Сарапула</a>
+                <a class="nav__link" href="{% url 'home' %}" data-scroll="#features">Главная страница</a>
+                <a class="nav__link" href="{% url 'history' %}" data-scroll="#features">История Сарапула</a>
                 <a class="nav__link" href="{% url 'sights' %}" data-scroll="#works">Интересные места</a>
-                <a class="nav__link" href="#" data-scroll="#team">Kla</a>
-                <a class="nav__link" href="#" data-scroll="#testimonials">Testimonials</a>
-                <a class="nav__link" href="#" data-scroll="#download">Downnload</a>
             </nav>
 
             <button class="menu" type="button" id="navToggle">
                 <span class="menu__item">Меню</span>
             </button>
 
+        </div>
+        <div class="account">
+            {% if request.user.is_authenticated %}
+            <a class="btn btn--login" id="profile" href="#">Профиль</a>
+            {% else %}
+            <a href="{% url 'login' %}" class="btn btn--login">Войти</a>
+            {% endif %}
         </div>
         <ul class="profile__items" id="profile__items">
             {% if request.user.is_superuser %}
@@ -88,59 +101,39 @@
 {% endblock %}
 
 <!-- Footer -->
-<footer class="footer">
+<footer class="footer" id="footer">
     <div class="container">
         <div class="footer__inner">
 
             <div class="footer__block">
-                <h4 class="footer__title">Location</h4>
-                <address class="footer__address">
-                    <div>3481 Melrose Place</div>
-                    <div>Beverly Hills, CA 90210</div>
-                </address>
-            </div>
-
-            <div class="footer__block">
-                <h4 class="footer__title">Share with love</h4>
+                <h4 class="footer__title">Обратная связь</h4>
                 <div class="social social--footer">
-                    <a class="social__item" href="#">
+                    <a class="social__item" href="https://vk.com/public202719094" target="_blank">
                         <svg class="social__icon">
-                            <use xlink:href="#facebook"></use>
-                        </svg>
-                    </a>
-
-                    <a class="social__item" href="#">
-                        <svg class="social__icon">
-                            <use xlink:href="#twitter"></use>
-                        </svg>
-                    </a>
-
-                    <a class="social__item" href="#">
-                        <svg class="social__icon">
-                            <use xlink:href="#reddit"></use>
+                            <use xlink:href="#vk"></use>
                         </svg>
                     </a>
                 </div>
             </div>
 
             <div class="footer__block">
-                <h4 class="footer__title">About ActiveBox</h4>
+                <h4 class="footer__title">О сайте</h4>
                 <div class="footer__text">
-                    <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                    <p>Данный сайт создавался с целью ознакомления людей с городом Сарапулом и его новостями.</p>
                 </div>
             </div>
 
         </div> <!-- /.footer__inner -->
     </div> <!-- /.container -->
 
-    <div class="copyright">
+    <!-- <div class="copyright">
         <div class="container">
             <div class="copyright__text">
                 <div>Copyright © 2015 ActiveBox. All Rights Reserved</div>
                 <div>Made <span>by Kamal Chaneman</span></div>
             </div>
         </div>
-    </div>
+    </div> -->
 </footer>
 
 {% block script %}

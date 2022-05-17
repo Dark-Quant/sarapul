@@ -1,9 +1,12 @@
 .weather {
+    padding: 5px;
     display: block;
-    height: 50px;
-    width: 200px;
+    height: 70px;
+    width: 300px;
     font-family: 'PT Sans', sans-serif;
-    font-size: 22px;
+    font-weight: 700;
+    font-size: 16px;
+    color: #000;
 }
 
 .weather__inner {
@@ -25,12 +28,20 @@
 
 .weather__container {
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    width: 100px;
-    height: 100%;
+    text-align: left;
+    width: 120px;
+    min-height: 100%;
 }
 
 .weather__cloudness {
     margin-left: 10px;
-    font-size: 22px;
+    margin-bottom: 2px;
+    font-size: 18px;
+}
+
+.weather__wind {
+    margin-left: 10px;
+    font-size: 18px;
 }

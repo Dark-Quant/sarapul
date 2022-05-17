@@ -1,7 +1,14 @@
 {% extends 'sights/base.html' %}
 
 {% block content %}
-    <div class="form" style="padding-top: 150px; margin-bottom:50px;">
+    <div class="form" style="padding-top: 150px; margin-bottom:100px;">
         {% include 'account/register.html' %}
     </div>
+    <style>
+        .footer{
+            width: 100%;
+            position: static;
+            bottom: 0;
+        }
+    </style>
 {% endblock %}

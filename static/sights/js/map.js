@@ -1,9 +1,10 @@
+
 var map = L.map(
     "map",
     {
         center: [56.461218, 53.803687],
         crs: L.CRS.EPSG3857,
-        zoom: 10,
+        zoom: 12,
         zoomControl: true,
         preferCanvas: false,
     }
@@ -30,7 +31,7 @@ function printContent(content){
 }
 
 var sights = new Array()
-
+var dataSights = new Array()
 
 function onMapClick(e) {
     console.log("You clicked the map at " + e.latlng);
@@ -42,11 +43,23 @@ function onMapClick(e) {
             $('#popup').show();
             let sight = data[sights.indexOf(e.target)];
             $('#popup__title').text(sight.title);
-            $('#popup__text').text('{{' + sight.description +'|linebreaks|truncatewords:1}}');
+            $('#popup__text').text(sight.description);
             $('#popup__photo').attr('src', sight.photo);
         }
 
     });
+}
+var tooltipPopup;
+function onMapHover(e){
+console.log(dataSights[sights.indexOf(e.target)])
+    tooltipPopup = L.popup({ offset: L.point(0, -50)});
+    tooltipPopup.setContent("<img src='" + dataSights[sights.indexOf(e.target)].photo + "' alt='' style='width: 100px;'>");
+    tooltipPopup.setLatLng(e.target.getLatLng());
+    tooltipPopup.openOn(map);
+}
+
+function onMapOver(e){
+    map.closePopup();
 }
 
 
@@ -56,9 +69,9 @@ $.ajax({
     dataType: 'json',
     success: function (data) {
         for (i in data){
-            sights.push(L.marker([data[i].latitude, data[i].longitude]).addTo(map).on('click', onMapClick));
+            sights.push(L.marker([data[i].latitude, data[i].longitude]).addTo(map).on('click', onMapClick).on('mouseover', onMapHover).on('mouseout', onMapOver))
+            dataSights.push(data[i])
         }
     }
-
 });
 

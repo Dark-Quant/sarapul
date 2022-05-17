@@ -2,7 +2,7 @@ import os
 from uuid import uuid4
 from django.core.cache import cache
 import requests
-import ujson as json
+import json
 
 
 def path_rename(instance, filename):
